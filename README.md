@@ -118,30 +118,27 @@ minikube stop
 ````
 
 ### C. Deploy with Kubernetes FastAPI app
-
-1.  Push container to DockerHub (Optional): i.e. 
-`docker build -t <hub-user>/<repo-name>[:<tag>]` and `docker push <hub-user>/<repo-name>:<tag>`
-Example of a pushed FastAPI container here:  https://hub.docker.com/repository/docker/noahgift/fastapi-kube
-2. `minikube start`
-3. `minikube dashboard --url`
-4. Hover over link and "follow link"
-5. Create a deployment: `kubectl create deployment hello-fastapi --image=registry.hub.docker.com/noahgift/fastapi-kube`
-6. View deployment: `kubectl get deployments`
-7. Create service and expose it: `kubectl expose deployment hello-fastapi --type=LoadBalancer --port=8080`
-8. View services:  `kubectl get service hello-fastapi`
-9.  `minikube service hello-fastapi --url`
-10. Curl web service: i.e. `curl http://192.168.49.2:31224`
-11.  Cleanup
-12. Cleanup
+1. `minikube start`
+2. `minikube dashboard --url`
+3. Hover over link and "follow link"
+4. Create a deployment: `kubectl create deployment hello-fastapi --image=registry.hub.docker.com/noahgift/fastapi-kube`
+5. View deployment: `kubectl get deployments`
+6. Create service and expose it: `kubectl expose deployment hello-fastapi --type=LoadBalancer --port=8080`
+7. View services:  `kubectl get service hello-fastapi`
+8.  `minikube service hello-fastapi --url`
+9. Curl web service: i.e. `curl http://192.168.49.2:32478`
+10.  Cleanup by useing below code:
 ```bash
 kubectl delete service hello-fastapi
 kubectl delete deployment hello-fastapi
 minikube stop
 ```
+Here is my example:
+<img width="980" alt="Screen Shot 2023-02-22 at 11 39 05 PM" src="https://user-images.githubusercontent.com/112274822/220824094-cc304aaf-71fb-435a-bc4b-c021941374e6.png">
 
 ## References
 
 * [FastAPI Docker docs](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker)
 * [Hello minikube](https://kubernetes.io/docs/tutorials/hello-minikube/)
 * [Reference](https://kubernetes.io/blog/2019/07/23/get-started-with-kubernetes-using-python/)
-* [Professor's tutorial] https://github.com/nogibjj/coursera-applied-de-kubernetes-lab
+* [Professor's tutorial] (https://github.com/nogibjj/coursera-applied-de-kubernetes-lab)
