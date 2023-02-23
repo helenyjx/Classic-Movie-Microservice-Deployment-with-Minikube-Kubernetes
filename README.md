@@ -141,4 +141,4 @@ Here is my example:
 * [FastAPI Docker docs](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker)
 * [Hello minikube](https://kubernetes.io/docs/tutorials/hello-minikube/)
 * [Reference](https://kubernetes.io/blog/2019/07/23/get-started-with-kubernetes-using-python/)
-* [Professor's tutorial] (https://github.com/nogibjj/coursera-applied-de-kubernetes-lab)
+* [Professor's tutorial] (https://github.com/nogibjj/coursera-applied-de-kubernetes-lab/)
