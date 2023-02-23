@@ -13,6 +13,7 @@ B. type: "/movie" that returns a random best movie in the list of the world top 
 C. type: "/version" that returns the version of the service 
 
 ## Structure Diagram
+<img width="508" alt="Screen Shot 2023-02-23 at 1 20 18 AM" src="https://user-images.githubusercontent.com/112274822/220833875-65fe01c5-aed8-4ccc-b9ed-cdbdc0e1dba9.png"><img width="735" alt="Screen Shot 2023-02-23 at 1 09 20 AM" src="https://user-images.githubusercontent.com/112274822/220833906-cad3f3b6-59ef-4079-ac69-2eaabafbde70.png">
 
 ## Demo Video Link
 
