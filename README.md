@@ -102,15 +102,27 @@ A virtual environment is a tool that helps to keep dependencies required by diff
 
 1.  Launch GitHub Codespace
 2.  Run `minikube start` to start cluster
-3.  Run `minikube dashboard --url` to view dashboard in a new terminal
-4.  Hover over link and "follow link"
-5.  Create a deployment:  `kubectl create deployment hello-node --image=registry.k8s.io/e2e-test-images/agnhost:2.39 -- /agnhost netexec --http-port=8080`
-6. View deployment: `kubectl get deployments`
-7. View pods:  `kubectl get pods`
-8. Create service and expose it: `kubectl expose deployment hello-node --type=LoadBalancer --port=8080`
-9. View services:  `kubectl get services`
-10. Curl the url shown, for example: `curl http://192.168.49.2:31839` or change to your URL.
-11. Cleanup
+<img width="845" alt="Screen Shot 2023-02-22 at 10 28 22 PM" src="https://user-images.githubusercontent.com/112274822/220824656-ff94c58d-3049-4b78-863d-b240985ee834.png">
+
+4.  Run `minikube dashboard --url` to view dashboard in a new terminal, then go to "PORTS" find 36775, open the link and add "api" in the end of the link
+<img width="760" alt="Screen Shot 2023-02-22 at 10 54 29 PM" src="https://user-images.githubusercontent.com/112274822/220825196-c6a02ff1-afdd-4abf-8a1c-09d7c332894f.png">
+
+<img width="1015" alt="Screen Shot 2023-02-22 at 10 55 14 PM" src="https://user-images.githubusercontent.com/112274822/220825235-cda7d599-56b4-4f13-aec1-15ba5348390a.png">
+
+<img width="701" alt="Screen Shot 2023-02-22 at 10 53 58 PM" src="https://user-images.githubusercontent.com/112274822/220825313-c098e68c-f91f-41d6-a0aa-070ed039b711.png">
+
+6.  Hover over link and "follow link"
+7.  Create a deployment:  `kubectl create deployment hello-node --image=registry.k8s.io/e2e-test-images/agnhost:2.39 -- /agnhost netexec --http-port=8080`
+8. View deployment: `kubectl get deployments`
+9. View pods:  `kubectl get pods`
+10. Create service and expose it: `kubectl expose deployment hello-node --type=LoadBalancer --port=8080`
+11. View services:  `kubectl get services`
+12. Curl the url shown, for example: `curl http://10.100.68.154:30035` or change to your URL.
+
+* Here is my example:
+<img width="1129" alt="Screen Shot 2023-02-22 at 11 24 49 PM" src="https://user-images.githubusercontent.com/112274822/220825449-f7a3b2a0-602b-4b1f-83be-e3787532e119.png">
+
+14. Cleanup
 ```bash
 kubectl delete service hello-node
 kubectl delete deployment hello-node
