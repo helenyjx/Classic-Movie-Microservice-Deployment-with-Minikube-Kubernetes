@@ -17,6 +17,7 @@ C. type: "/version" that returns the version of the service
 
 ## Demo Video Link
 
+
 ## Preparation
 ### 1. Containerization: Setup virtual environment
 A virtual environment is a tool that helps to keep dependencies required by different projects separate by creating isolated python virtual environments for them. 
@@ -101,53 +102,49 @@ A virtual environment is a tool that helps to keep dependencies required by diff
 
 ### B. Via Lab Minikube
 
-1.  Launch GitHub Codespace
-2.  Run `minikube start` to start cluster
+1. Push container to DockerHub: 
+* Example of a pushed FastAPI container here: https://hub.docker.com/repository/docker/helenyjx/rust-mini/general
+```
+docker login -u helenyjx
+docker build . -t helenyjx/rust-mini
+docker push helenyjx/rust-mini
+```
+<img width="668" alt="Screen Shot 2023-02-23 at 11 31 59 PM" src="https://user-images.githubusercontent.com/112274822/221098074-b1fc3556-3f47-48fb-b77d-26d8396417a8.png">
+<img width="948" alt="Screen Shot 2023-02-23 at 11 31 20 PM" src="https://user-images.githubusercontent.com/112274822/221098018-b5cc91a2-668a-4399-ad92-84b38b777996.png">
+
+2. Run `minikube start` to start cluster
 <img width="845" alt="Screen Shot 2023-02-22 at 10 28 22 PM" src="https://user-images.githubusercontent.com/112274822/220824656-ff94c58d-3049-4b78-863d-b240985ee834.png">
 
-4.  Run `minikube dashboard --url` to view dashboard in a new terminal, then go to "PORTS" find 36775, open the link and add "api" in the end of the link
+4. Run `minikube dashboard --url` to view dashboard in a new terminal, then go to "PORTS" find 36775, open the link and add "api" in the end of the link
 <img width="760" alt="Screen Shot 2023-02-22 at 10 54 29 PM" src="https://user-images.githubusercontent.com/112274822/220825196-c6a02ff1-afdd-4abf-8a1c-09d7c332894f.png">
 
 <img width="1015" alt="Screen Shot 2023-02-22 at 10 55 14 PM" src="https://user-images.githubusercontent.com/112274822/220825235-cda7d599-56b4-4f13-aec1-15ba5348390a.png">
 
 <img width="701" alt="Screen Shot 2023-02-22 at 10 53 58 PM" src="https://user-images.githubusercontent.com/112274822/220825313-c098e68c-f91f-41d6-a0aa-070ed039b711.png">
 
-6.  Hover over link and "follow link"
-7.  Create a deployment:  `kubectl create deployment hello-node --image=registry.k8s.io/e2e-test-images/agnhost:2.39 -- /agnhost netexec --http-port=8080`
-8. View deployment: `kubectl get deployments`
-9. View pods:  `kubectl get pods`
-10. Create service and expose it: `kubectl expose deployment hello-node --type=LoadBalancer --port=8080`
-11. View services:  `kubectl get services`
-12. Curl the url shown, for example: `curl http://10.100.68.154:30035` or change to your URL.
+6. Hover over link and "follow link"
+7. Create a deployment: `kubectl create deployment hi-minikube --image=registry.hub.docker.com/helenyjx/rust-mini`
+8. View deployment: `kubectl get deployments`
+9. Create service and expose it: `kubectl expose deployment hi-minikube --type=LoadBalancer --port=8080`
+10. View services:
+```
+kubectl get service hi-minikube
+minikube service hi-minikube  --url
+```
+11. Curl web service: i.e. `curl http://192.168.49.2:31693`
+12. Depoly the project via below link:
+```
+curl http://192.168.49.2:31693/movie
+curl http://192.168.49.2:31693/version
+```
+<img width="1021" alt="Screen Shot 2023-02-23 at 11 30 57 PM" src="https://user-images.githubusercontent.com/112274822/221097950-b90dbb8f-0f15-4c5b-889e-1eba08334a65.png">
 
-* Here is my example:
-<img width="1129" alt="Screen Shot 2023-02-22 at 11 24 49 PM" src="https://user-images.githubusercontent.com/112274822/220825449-f7a3b2a0-602b-4b1f-83be-e3787532e119.png">
-
-14. Cleanup
+13. Cleanup:
 ```bash
 kubectl delete service hello-node
 kubectl delete deployment hello-node
 minikube stop
 ````
-
-### C. Deploy with Kubernetes FastAPI app
-1. `minikube start`
-2. `minikube dashboard --url`
-3. Hover over link and "follow link"
-4. Create a deployment: `kubectl create deployment hello-fastapi --image=registry.hub.docker.com/noahgift/fastapi-kube`
-5. View deployment: `kubectl get deployments`
-6. Create service and expose it: `kubectl expose deployment hello-fastapi --type=LoadBalancer --port=8080`
-7. View services:  `kubectl get service hello-fastapi`
-8.  `minikube service hello-fastapi --url`
-9. Curl web service: i.e. `curl http://192.168.49.2:32478`
-10.  Cleanup by useing below code:
-```bash
-kubectl delete service hello-fastapi
-kubectl delete deployment hello-fastapi
-minikube stop
-```
-Here is my example:
-<img width="980" alt="Screen Shot 2023-02-22 at 11 39 05 PM" src="https://user-images.githubusercontent.com/112274822/220824094-cc304aaf-71fb-435a-bc4b-c021941374e6.png">
 
 ## References
 
