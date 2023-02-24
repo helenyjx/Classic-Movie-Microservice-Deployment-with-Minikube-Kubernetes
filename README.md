@@ -16,7 +16,7 @@ C. type: "/version" that returns the version of the service
 <img width="508" alt="Screen Shot 2023-02-23 at 1 20 18 AM" src="https://user-images.githubusercontent.com/112274822/220833875-65fe01c5-aed8-4ccc-b9ed-cdbdc0e1dba9.png"><img width="735" alt="Screen Shot 2023-02-23 at 1 09 20 AM" src="https://user-images.githubusercontent.com/112274822/220833906-cad3f3b6-59ef-4079-ac69-2eaabafbde70.png">
 
 ## Demo Video Link
-
+https://teams.microsoft.com/l/message/19:48a1400da82046de9da6bbe430b981d2@thread.tacv2/1677216347453?tenantId=cb72c54e-4a31-4d9e-b14a-1ea36dfac94c&groupId=7757ff33-20f5-434b-8d0b-5fe61b251c34&parentMessageId=1677216347453&teamName=IDS-721-Spring-2023&channelName=Week%206%20Individual%20Project%202&createdTime=1677216347453&allowXTenantAccess=false
 
 ## Preparation
 ### 1. Containerization: Setup virtual environment
