@@ -1,4 +1,4 @@
-# Jiaxin-P2-Microservice-Rust
+# Jiaxin-P2-Microservice-MininKube-Rust
 
 ## Key Objectives of Project
 In project 2, the purpose is to build a functional Web Microservice in Rust based on Kubernetes or other similar platforms (Kubernetes Deployments provide a higher-level abstraction for managing the deployment and scaling of applications in a cluster, making it easier to automate and manage the process).
